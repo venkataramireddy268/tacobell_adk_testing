@@ -1,0 +1,8 @@
+google-adk
+pandas
+db-dtypes
+google-genai
+Pillow
+langchain_core
+aiofiles
+typing-extensions
