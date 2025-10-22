@@ -1,0 +1,16 @@
+[
+  {
+    "scene_number": 1,
+    "start_timestamp": "00:00:04",
+    "end_timestamp": "00:00:06",
+    "description": "A cup of Mountain Dew Baja Blast sits beside a taco and a Crunchwrap.",
+    "keyframe_image": "file_000004_000006.jpg"
+  },
+  {
+    "scene_number": 2,
+    "start_timestamp": "00:00:06",
+    "end_timestamp": "00:00:14",
+    "description": "A wider shot of a Taco Bell meal with a Mountain Dew Baja Blast beverage.",
+    "keyframe_image": "file_000006_000014.jpg"
+  }
+]

@@ -1,0 +1,4 @@
+google-adk
+google-genai==1.45.0
+opencv-python
+moviepy
