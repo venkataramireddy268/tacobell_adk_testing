@@ -1,0 +1,45 @@
+[
+  {
+    "Scene Number": 1,
+    "start timestamp": "00:00:00",
+    "end timestamp": "00:00:03",
+    "Setting/Background": "The scene is set in a vibrant, modern living room with a purple wall. A white lamp with a beige shade is on the left, and a framed abstract painting hangs above it. To the right, a white shelving unit holds books and a red Taco Bell cup. A purple two-seater sofa with yellow and white patterned cushions occupies the foreground. The lighting is warm and bright.",
+    "Characters and their appearance": [
+      {
+        "gender": "Male",
+        "age_group": "Young adult",
+        "attire": "Blue denim shirt over a white t-shirt, dark trousers",
+        "ethnicity": "South Asian",
+        "expressions": "Smiling broadly and enthusiastically, looking directly at the camera."
+      },
+      {
+        "gender": "Female",
+        "age_group": "Young adult",
+        "attire": "Yellow v-neck t-shirt, dark trousers",
+        "ethnicity": "South Asian",
+        "expressions": "Smiling broadly and enthusiastically, looking directly at the camera."
+      }
+    ],
+    "Key Actions and Expressions": "The male character holds a fried chicken drumstick in his right hand, extending it slightly towards the camera, and a red Taco Bell chicken box in his left. The female character holds a chicken taco in her right hand, also extending it towards the camera. Both are seated on the sofa, beaming with excitement.",
+    "Voice Tone or Emotion": "Enthusiastic and excited. The male voice announces, followed by the female voice.",
+    "Objects or Food Items shown": "One fried chicken drumstick, a red Taco Bell branded box containing fried chicken, and one chicken taco.",
+    "Text appearing in the scene": "TACO BELL\nCHICKEN",
+    "Visual Description": "A young couple, seated on a purple sofa, happily showcasing Taco Bell's chicken offerings. The male holds fried chicken, and the female holds a chicken taco. The background is a cheerfully decorated living space.",
+    "Audio/Text Description": "Male voice: \"What time is it?\" Female voice: \"Taco Bell Chicken is finally here!\"",
+    "is_visual_duplicate_of": false
+  },
+  {
+    "Scene Number": 2,
+    "start timestamp": "00:00:03",
+    "end timestamp": "00:00:07",
+    "Setting/Background": "A digitally rendered background with a purple gradient, featuring subtle radiating lines from the center. Wisps of white steam or smoke rise from the food items.",
+    "Characters and their appearance": [],
+    "Key Actions and Expressions": "A sparkling starburst effect appears next to the fried chicken. The text 'ORDER NOW!' animates onto the screen with a pulsating glow.",
+    "Voice Tone or Emotion": "Excited and urgent. A female voice encourages ordering.",
+    "Objects or Food Items shown": "An open red Taco Bell branded box filled with multiple pieces of golden-brown fried chicken (drumsticks, thighs, and smaller bites). A chicken taco, richly filled, is placed next to the box.",
+    "Text appearing in the scene": "TACO BELL\nCHICKEN\nORDER NOW!",
+    "Visual Description": "A vibrant, product-focused shot displaying Taco Bell's fried chicken in a box and a chicken taco, against a dynamic purple background. The 'ORDER NOW!' call to action is prominent and animated.",
+    "Audio/Text Description": "Female voice: \"Get yours today. Seriously, order now!\"",
+    "is_visual_duplicate_of": false
+  }
+]

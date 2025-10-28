@@ -1,0 +1,31 @@
+[
+  {
+    "Scene Number": 1,
+    "start timestamp": "00:00:00",
+    "end timestamp": "00:00:03",
+    "Setting/Background": "The scene is set in a modern, cozy living room with a vibrant purple wall as the dominant background color. There's a comfortable purple sofa with two yellow and white patterned cushions. On the left, a floor lamp with a white shade and a framed abstract picture hang on the wall. On the right, a white bookshelf holds various items including green plants and a red Taco Bell cup. The lighting is warm and inviting.",
+    "Characters and their appearance": [
+      {
+        "gender": "Male",
+        "age_group": "Young adult",
+        "attire": "Light blue denim-style button-up shirt over a white t-shirt, dark trousers",
+        "ethnicity": "South Asian",
+        "expressions": "Broad, enthusiastic smile, looking directly at the camera with wide eyes. He points forward with his right hand holding a chicken drumstick, and his left hand holds a Taco Bell box."
+      },
+      {
+        "gender": "Female",
+        "age_group": "Young adult",
+        "attire": "Mustard yellow short-sleeved top, dark trousers",
+        "ethnicity": "South Asian",
+        "expressions": "Broad, enthusiastic smile, looking directly at the camera. She points forward with both hands, holding a taco in her left hand."
+      }
+    ],
+    "Key Actions and Expressions": "Both individuals are sitting on a sofa, smiling enthusiastically and looking directly at the camera. The man holds up a fried chicken drumstick and a Taco Bell box, while the woman holds a taco. They both point forward with their hands, expressing excitement about the food.",
+    "Voice Tone or Emotion": "Enthusiastic, cheerful, and excited.",
+    "Objects or Food Items shown": "A fried chicken drumstick, a red and white Taco Bell box containing fried chicken pieces, and a taco.",
+    "Text appearing in the scene": "TACO BELL\nCHICKEN",
+    "Visual Description": "A young man and woman are seated side-by-side on a purple sofa, framed against a matching purple wall. They both wear casual attire and display wide, joyful smiles. The man presents a fried chicken drumstick and a Taco Bell box, while the woman holds a taco. The 'TACO BELL CHICKEN' logo is prominently displayed above them.",
+    "Audio/Text Description": "Male voice asks, 'What time it is?' followed by a female voice excitedly proclaiming, 'Taco Bell Chicken is finally here!' The male voice adds an enthusiastic 'Woo!'",
+    "is_visual_duplicate_of": false
+  }
+]

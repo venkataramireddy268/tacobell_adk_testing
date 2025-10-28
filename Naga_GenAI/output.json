@@ -1,16 +1,62 @@
 [
   {
-    "scene_number": 1,
-    "start_timestamp": "00:00:04",
-    "end_timestamp": "00:00:06",
-    "description": "A cup of Mountain Dew Baja Blast sits beside a taco and a Crunchwrap.",
-    "keyframe_image": "file_000004_000006.jpg"
+    "scene": 1,
+    "start_timestamp": "00:00:00",
+    "end_timestamp": "00:00:03",
+    "setting": "Close-up, likely indoors with soft, warm lighting.",
+    "characters": "None visible, focus is on food.",
+    "actions": "Camera slowly pans across the food item.",
+    "voice_tone": "Upbeat, energetic electronic music plays. A male voice asks, 'What do you call a crunchwrap with double the seasoned beef?'",
+    "objects": "A large, open Crunchwrap-like item filled with seasoned ground beef, melted cheese, shredded lettuce, diced tomatoes, and sour cream/sauce. A soft tortilla wraps around the core, with a crispy tostada visible within the layers. The background is dark and out of focus.",
+    "text": "None",
+    "scene_description": "The scene opens with an inviting close-up shot of a generously filled food item, resembling a Crunchwrap, showcasing its layers of seasoned beef, melted cheese, and fresh toppings. The camera glides across the item, highlighting its textures and ingredients. An energetic electronic music track begins, and a male voice poses a question about the food's composition, setting an inquisitive and engaging tone for the advertisement."
   },
   {
-    "scene_number": 2,
+    "scene": 2,
+    "start_timestamp": "00:00:03",
+    "end_timestamp": "00:00:06",
+    "setting": "Dynamic kitchen or serving area with dark, blurred background.",
+    "characters": "None visible, focus is on food.",
+    "actions": "Quick cuts and camera movements between different food items.",
+    "voice_tone": "The male voice continues, 'A crunchy taco...'",
+    "objects": "A close-up of a crunchy taco filled with seasoned beef, shredded lettuce, and shredded cheese. Another shot shows the Crunchwrap from the previous scene alongside the taco, slightly out of focus. Yellow sauce packets are visible in the foreground.",
+    "text": "None",
+    "scene_description": "This scene quickly transitions to showcasing a crispy taco, emphasizing its crunchy texture and classic fillings. The inclusion of the Crunchwrap alongside it suggests a meal combination. The rapid cuts and close-ups aim to highlight the appeal of both items as the voice-over describes them."
+  },
+  {
+    "scene": 3,
     "start_timestamp": "00:00:06",
-    "end_timestamp": "00:00:14",
-    "description": "A wider shot of a Taco Bell meal with a Mountain Dew Baja Blast beverage.",
-    "keyframe_image": "file_000006_000014.jpg"
+    "end_timestamp": "00:00:10",
+    "setting": "Indoors, on a wooden or dark surface, with soft ambient lighting coming from the top left. A blurred background shows a person and possibly a laptop.",
+    "characters": "A person is vaguely visible in the blurred background, possibly sitting at a desk, but not clearly identifiable.",
+    "actions": "The camera pulls back to reveal the full meal arrangement.",
+    "voice_tone": "The male voice continues, '...and a large drink for just five dollars?'",
+    "objects": "A clear plastic cup filled with a bright blue beverage (Mountain Dew Baja Blast) and ice, a crunchy taco, and the large Crunchwrap-like item. A few red sauce packets are scattered on a brown paper surface in front of the food. A desk lamp is visible on the left.",
+    "text": "The Mountain Dew Baja Blast logo is prominent on the cup.",
+    "scene_description": "The camera pulls back to reveal the complete meal deal: the large Crunchwrap, a crunchy taco, and a vibrant blue Mountain Dew Baja Blast drink, arranged on what appears to be a study or work desk. The setting implies a convenient and satisfying meal for someone engaged in daily activities. The male voice-over concludes the question about the meal's components and price, building anticipation for the reveal."
+  },
+  {
+    "scene": 4,
+    "start_timestamp": "00:00:10",
+    "end_timestamp": "00:00:13",
+    "setting": "Same indoor setting as Scene 3.",
+    "characters": "A person's arm and torso are visible in the blurred background, possibly operating a laptop.",
+    "actions": "The camera remains static, focusing on the meal. The person in the background is slightly more visible.",
+    "voice_tone": "The male voice responds, 'Dunno, but it better be grande. Or Grande.'",
+    "objects": "The full meal (Crunchwrap, crunchy taco, Baja Blast drink, sauce packets) remains the focus on the desk. A laptop screen is partially visible in the blurred background.",
+    "text": "None",
+    "scene_description": "This scene maintains the same composition as the previous one, with the full meal prominently displayed. The voice-over adds a playful remark about the size, hinting at the name of the new meal. The slight increase in visibility of the background character reinforces the idea of the meal being enjoyed in a casual, everyday setting, such as during work or study."
+  },
+  {
+    "scene": 5,
+    "start_timestamp": "00:00:13",
+    "end_timestamp": "00:00:15",
+    "setting": "Same indoor setting, but slightly brighter, emphasizing the text.",
+    "characters": "The blurred person in the background remains.",
+    "actions": "On-screen text appears and remains for the duration of the scene.",
+    "voice_tone": "The male voice-over proudly states, 'It's the $5 Grande Crunchwrap Meal. Only at Taco Bell.'",
+    "objects": "The full meal (Crunchwrap, crunchy taco, Baja Blast drink, sauce packets) is still visible on the desk.",
+    "text": "NEW!\n$5 GRANDE\nCRUNCHWRAP\nMEAL\nOnly at Taco Bell.\nSmall legal text: 'Check local store for price and participation which may vary. Tax extra. Drinks exclude Freezes. Grande Crunchwrap: Double the layers of seasoned beef, tostada shell and nacho cheese sauce as compared to the Crunchwrap Supreme. MTN DEW, MTN DEW Logo and BAJA BLAST are registered trademarks of PepsiCo, Inc. \u00a9 2021 Taco Bell IP Holder, LLC.'",
+    "scene_description": "The scene culminates with the reveal of the meal's name and price. Large, bold text 'NEW! $5 GRANDE CRUNCHWRAP MEAL' appears on screen, confirming the product being advertised. The voice-over reinforces this information, clearly stating the offer and its exclusivity to Taco Bell. The presence of legal fine print ensures compliance while the visual focus remains on the appealing meal. The Taco Bell logo appears at the very end, solidifying brand recognition."
   }
 ]
