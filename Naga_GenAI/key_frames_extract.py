@@ -2,7 +2,7 @@ import json, cv2, os
 
 def extract_keyframes(
     # video_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/Baaki se breakup, New Cheesy Lava Taco ke saath karo makeup..mp4",
-    video_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloudshell_open/tacobell_adk_testing/Naga_GenAI/Taco_Bell_Ad_Gneration.mp4",
+    video_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloudshell_open/tacobell_adk_testing/Naga_GenAI/official_8s_video.mp4",
     json_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloths_loc1.json",
     output_dir="keyframes_v2_1"
     ):
@@ -37,7 +37,7 @@ def extract_keyframes(
 import json, cv2, os
 
 def extract_keyframes(
-    video_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/Taco_Bell_Ad_Gneration.mp4",
+    video_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/official_8s_video.mp4",
     json_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloths_loc_1.json",
     output_dir="keyframes_single_1"
 ):

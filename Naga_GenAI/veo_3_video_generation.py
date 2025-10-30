@@ -98,7 +98,7 @@ from vertexai.generative_models import GenerativeModel
 
 def video_generation_reference_images():
     # json_path="/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/output.json" (this is generated for brand replacement)
-    json_path = "/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloths_loc.json"
+    json_path = "/home/nagababu_upputuri/cloudshell_open/tacobell_adk_testing/Naga_GenAI/cloths_loc_1.json"
     # Step 1: Load JSON
     with open(json_path, "r") as f:
         scenes = json.load(f)
@@ -134,17 +134,17 @@ def video_generation_reference_images():
     #     image=Image(gcs_uri =img,mime_type="image/png"),
     #     reference_type="asset"
     # ) for img in images]
-    scene1_reference = VideoGenerationReferenceImage(
-        image=Image(gcs_uri ="gs://test8727/images/cloths_updated.jpg",mime_type="image/png"),
-        reference_type="asset"
-    )
+    # scene1_reference = VideoGenerationReferenceImage(
+    #     image=Image(gcs_uri ="gs://test8727/images/cloths_updated.jpg",mime_type="image/png"),
+    #     reference_type="asset"
+    # )
     scene2_reference = VideoGenerationReferenceImage(
-        image=Image(gcs_uri ="gs://test8727/images/all_scene_1_new.jpg",mime_type="image/png"),
+        image=Image(gcs_uri ="gs://test8727/images/scene_1_bg_edit.jpg",mime_type="image/png"),
         reference_type="asset"
     )
 
     scene3_reference = VideoGenerationReferenceImage(
-        image=Image(gcs_uri="gs://test8727/images/all_scene_2.jpg",mime_type="image/png"),
+        image=Image(gcs_uri="gs://test8727/images/scene_2_bg_edit.jpg",mime_type="image/png"),
         reference_type="asset"
     )
     # scene2_reference = VideoGenerationReferenceImage(
@@ -191,14 +191,15 @@ def video_generation_reference_images():
     7. DO NOT alter or replace any visuals or branding from the reference images — they are already finalized.
     8. Maintain all the object movements, character behaviors, and environment details as described in the scene data.
     9. Keep all Taco Bell food items, themes, and ambiance consistent across the video.
-    10. The video visuals should match with the Visual Description and similar to the Audio/Text Description as well
+    10. The video visuals should match with the Visual Description and similar to the Audio/Text Description as well.
+    11. Make sure audio sequence or flow must match with the duration and respective scenes, and no overlap. For this use the start and end timestamps to maintain the respective audio sequence for each scene, also audio must match with the gender theme as well.
+  ---
   ---
     JSON Scenes data below for your video recreation:
     {json.dumps(scenes, indent=2)}
   ---
     ### OUTPUT REQUIREMENTS:
     - Duration and sequence must follow the JSON order.
-    - The total video duration should approximately match the JSON (around 10–15 seconds).
     - Preserve all camera movements between scenes (pans, zooms, focus shifts).
     - Maintain consistent lighting, attire, and object details from the reference images.
     - Ensure visual coherence between the JSON scenes and reference visuals.

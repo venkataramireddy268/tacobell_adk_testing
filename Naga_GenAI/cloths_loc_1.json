@@ -2,44 +2,70 @@
   {
     "Scene Number": 1,
     "start timestamp": "00:00:00",
-    "end timestamp": "00:00:03",
-    "Setting/Background": "The scene is set in a vibrant, modern living room with a purple wall. A white lamp with a beige shade is on the left, and a framed abstract painting hangs above it. To the right, a white shelving unit holds books and a red Taco Bell cup. A purple two-seater sofa with yellow and white patterned cushions occupies the foreground. The lighting is warm and bright.",
+    "end timestamp": "00:00:05",
+    "Setting/Background": "A room with pink walls and a pink sofa. There are decorative white accents on the wall behind the sofa. The lighting is bright and even.",
     "Characters and their appearance": [
       {
         "gender": "Male",
         "age_group": "Young adult",
-        "attire": "Blue denim shirt over a white t-shirt, dark trousers",
+        "attire": "Maroon long-sleeved shirt, dark-rimmed glasses",
         "ethnicity": "South Asian",
-        "expressions": "Smiling broadly and enthusiastically, looking directly at the camera."
+        "expressions": "Smiling, looking down at the woman, with an intrigued expression. He leans slightly over the back of the sofa."
       },
       {
         "gender": "Female",
         "age_group": "Young adult",
-        "attire": "Yellow v-neck t-shirt, dark trousers",
+        "attire": "White collared shirt, light blue jeans, black belt",
         "ethnicity": "South Asian",
-        "expressions": "Smiling broadly and enthusiastically, looking directly at the camera."
+        "expressions": "Smiling, holding a food item, looking at the man initially and then subtly at the food, then looking towards the camera."
       }
     ],
-    "Key Actions and Expressions": "The male character holds a fried chicken drumstick in his right hand, extending it slightly towards the camera, and a red Taco Bell chicken box in his left. The female character holds a chicken taco in her right hand, also extending it towards the camera. Both are seated on the sofa, beaming with excitement.",
-    "Voice Tone or Emotion": "Enthusiastic and excited. The male voice announces, followed by the female voice.",
-    "Objects or Food Items shown": "One fried chicken drumstick, a red Taco Bell branded box containing fried chicken, and one chicken taco.",
-    "Text appearing in the scene": "TACO BELL\nCHICKEN",
-    "Visual Description": "A young couple, seated on a purple sofa, happily showcasing Taco Bell's chicken offerings. The male holds fried chicken, and the female holds a chicken taco. The background is a cheerfully decorated living space.",
-    "Audio/Text Description": "Male voice: \"What time is it?\" Female voice: \"Taco Bell Chicken is finally here!\"",
-    "is_visual_duplicate_of": false
+    "Key Actions and Expressions": "The woman is seated on a pink sofa, holding a food item (a wrap). A man stands behind the sofa, looking at her and the food. She looks up at him, then back at the food, and finally at the camera, smiling while holding the wrap.",
+    "Voice Tone or Emotion": "Upbeat, lively music plays. A female voice speaks in an excited, descriptive tone.",
+    "Objects or Food Items shown": "A Taco Bell branded paper bag on the floor, a wrapped food item (possibly a burger or small wrap) on a brown paper wrapper, a small red cup with chips. The woman holds a large, folded wrap.",
+    "Text appearing in the scene": null,
+    "Visual Description": "A young couple in a cozy, pink-themed living room setting. The woman is seated on a sofa with Taco Bell food in front of her, holding a wrap. The man stands behind the sofa, observing her with interest.",
+    "Audio/Text Description": "Female voice: \"Ultimate cheese crunch wrap. Wrap and roll, like never before.\""
   },
   {
     "Scene Number": 2,
-    "start timestamp": "00:00:03",
-    "end timestamp": "00:00:07",
-    "Setting/Background": "A digitally rendered background with a purple gradient, featuring subtle radiating lines from the center. Wisps of white steam or smoke rise from the food items.",
+    "start timestamp": "00:00:05",
+    "end timestamp": "00:00:06",
+    "Setting/Background": "The same pink-walled room with the pink sofa. The lighting remains bright.",
+    "Characters and their appearance": [
+      {
+        "gender": "Male",
+        "age_group": "Young adult",
+        "attire": "Maroon long-sleeved shirt, dark-rimmed glasses",
+        "ethnicity": "South Asian",
+        "expressions": "Smiling, extending his hand slightly towards the woman or the food, with a 'wanting' expression. He leans forward."
+      },
+      {
+        "gender": "Female",
+        "age_group": "Young adult",
+        "attire": "White collared shirt, light blue jeans, black belt",
+        "ethnicity": "South Asian",
+        "expressions": "Smiling, holding the food item close, looking at the man with a slight mischievous or possessive smile."
+      }
+    ],
+    "Key Actions and Expressions": "The man gestures towards the food held by the woman, as if asking for a bite. The woman smiles back, holding the food protectively.",
+    "Voice Tone or Emotion": "Upbeat music continues. The man utters a sound of desire.",
+    "Objects or Food Items shown": "A large, folded wrap held by the woman. A Taco Bell bag, another wrapped food item, and chips are visible on the table/floor.",
+    "Text appearing in the scene": null,
+    "Visual Description": "The scene continues with the man making a gesture towards the food, and the woman playfully reacting, keeping the food to herself.",
+    "Audio/Text Description": "Male voice: \"Mmm.\""
+  },
+  {
+    "Scene Number": 3,
+    "start timestamp": "00:00:06",
+    "end timestamp": "00:00:09",
+    "Setting/Background": "A rustic wooden surface, possibly a table, with scattered food crumbs and a few round fried snacks in the background. The lighting is warm and focused on the food.",
     "Characters and their appearance": [],
-    "Key Actions and Expressions": "A sparkling starburst effect appears next to the fried chicken. The text 'ORDER NOW!' animates onto the screen with a pulsating glow.",
-    "Voice Tone or Emotion": "Excited and urgent. A female voice encourages ordering.",
-    "Objects or Food Items shown": "An open red Taco Bell branded box filled with multiple pieces of golden-brown fried chicken (drumsticks, thighs, and smaller bites). A chicken taco, richly filled, is placed next to the box.",
-    "Text appearing in the scene": "TACO BELL\nCHICKEN\nORDER NOW!",
-    "Visual Description": "A vibrant, product-focused shot displaying Taco Bell's fried chicken in a box and a chicken taco, against a dynamic purple background. The 'ORDER NOW!' call to action is prominent and animated.",
-    "Audio/Text Description": "Female voice: \"Get yours today. Seriously, order now!\"",
-    "is_visual_duplicate_of": false
+    "Key Actions and Expressions": "The camera focuses solely on the food item, highlighting its texture and fillings.",
+    "Voice Tone or Emotion": "The upbeat music transitions into a more pronounced, energetic jingle.",
+    "Objects or Food Items shown": "A large, open wrap (Ultimate Cheese Crunchwrap) showing grilled chicken, corn, salsa, and green leafy vegetables. The wrap itself has a toasted, cheesy exterior. In the blurred background, there are small, round, golden-brown fried snacks.",
+    "Text appearing in the scene": "TACO BELL\nNEW\nULTIMATE CHEESE\nCRUNCHWRAP\nWRAP & ROLL\nLIKE NEVER BEFORE.\nCHEESY. SAUCY.\nSPICY. CRUNCHY.\n*T&C APPLY. IMAGES ARE FOR ILLUSTRATION PURPOSES ONLY. ACTUAL PRODUCT MAY VARY.",
+    "Visual Description": "A close-up, top-down shot of the Taco Bell Ultimate Cheese Crunchwrap, cut in half to reveal its vibrant, abundant fillings. The wrap has a golden, slightly burnt cheese crust.",
+    "Audio/Text Description": "Jingle: \"Cheesy. Saucy. Spicy. Crunchy.\""
   }
 ]
