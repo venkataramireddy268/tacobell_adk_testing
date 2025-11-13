@@ -52,6 +52,8 @@ prompt_generator_agent = Agent(
         "Carefully examine the image description {image_description} and the user's request {query_text}, "
         "extract the key visual elements and desired outcome, and produce a clear, ordered prompt that guides the model "
         "through each step required to achieve the requested edit or generation."
+        "make prompt clear that only required item is added nothing else." 
+        "Ensure that only the requested item or change is made, do not add, remove, or alter anything else. Follow the user’s instructions exactly and keep all other details unchanged"
     ),
     output_key="prompt_generated"
 )
