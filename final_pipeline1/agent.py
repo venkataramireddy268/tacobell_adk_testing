@@ -68,6 +68,7 @@ executor_agent = Agent(
     output_key="edited_image_artifact_id"
 )
 
+
 # --- Pipeline Agent (Custom) --- #
 
 class PipelineAgent(BaseAgent):

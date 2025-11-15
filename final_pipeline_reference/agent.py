@@ -45,6 +45,36 @@ Generate a detailed description of the reference image to help compare it with t
 * **Differences or notable features** that could influence edits or transformations in the main image.
 """
 
+PROMPT_GENERATOR_INSTRUCTIONS = """
+You are an image-editing prompt engineer. Inputs:
+- image_description: {image_description}
+- reference_img_description: {reference_img_description}
+- user_request: {query_text}
+
+Task:
+1. IDENTIFY: Extract only the visual elements explicitly described in the three inputs. List them as attributes (shape, color, texture, material, size, orientation, key markings). Do NOT invent or infer any element that is not explicitly present in the inputs.
+2. COMPARE: Compare the target object in the original image with the object in the reference image and list which attributes must be copied exactly and which may differ (if any). If an attribute is missing from the reference, mark it as "unspecified" — DO NOT guess.
+3. REPLACE RULES (mandatory):
+   - Replace the target object fully with the reference object only.
+   - Preserve the target object's position and approximate scale unless the user explicitly requests a change.
+   - Do NOT add any extra objects, decorations, text, logos, or accessories not present in the reference image.
+   - Do NOT change the background or other scene elements unless the user explicitly requests it.
+   - Do NOT change lighting, perspective, or viewpoint beyond what is required to plausibly fit the reference object into the target scene; if the reference’s lighting or perspective conflicts, state which attribute cannot be matched exactly.
+4. STEPS: Produce a short, ordered list of concrete editing steps the image model should perform (max 6 steps).
+5. FINAL PROMPT: Produce one concise final prompt (one paragraph) for the image-generation/editing model that follows these exact rules and contains no extra creative additions.
+
+Output format (strict — return only JSON):
+{
+  "extracted_attributes": { ... },
+  "attributes_to_copy_exactly": [ ... ],
+  "attributes_unspecified_in_reference": [ ... ],
+  "comparison_notes": "short text",
+  "ordered_edit_steps": [ "step 1", "step 2", ... ],
+  "final_prompt": "One concise paragraph following the rules above",
+  "limitations_or_uncertainties": "If any attribute cannot be matched exactly, state it here."
+}"""
+
+
 image_describer_agent = Agent(
     name="image_describer",
     description="Describes the visual content of the image.",
@@ -66,17 +96,19 @@ prompt_generator_agent = Agent(
     name="prompt_generator",
     description="Generate a step-by-step prompt based on image description and user request.",
     model="gemini-2.5-flash",
+    instruction=PROMPT_GENERATOR_INSTRUCTIONS,
     # instruction=(
     #     "Carefully examine the image description {image_description} and the user's request {query_text}, "
     #     "extract the key visual elements and desired outcome, and produce a clear, ordered prompt that guides the model "
     #     "through each step required to achieve the requested edit or generation."
     # ),
-    instruction = (
-    "Carefully examine the image description {image_description}, the reference image description {reference_img_description}, "
-    "and the user's request {query_text}. Extract the key visual elements, compare them with the reference image, "
-    "and identify the desired outcome. Produce a clear, precise, and ordered prompt that guides the model step-by-step "
-    "to achieve the requested edit or generation, strictly adhering to the user's intent without adding any extra details."
-),
+#     instruction = (
+#     "Carefully examine the image description {image_description}, the reference image description {reference_img_description}, "
+#     "and the user's request {query_text}. Extract the key visual elements, compare them with the reference image, "
+#     "and identify the desired outcome. Produce a clear, precise, and ordered prompt that guides the model step-by-step "
+#     "to achieve the requested edit or generation, strictly adhering to the user's intent without adding any extra details."
+# ),
+
     output_key="prompt_generated"
 )
 
@@ -91,14 +123,31 @@ executor_agent = Agent(
 )
 
 
-
 evaluator_agent = Agent(
-    name="executor_agent",
-    description="Generate or edit image based on prompt.",
+    name="evaluator_agent",
+    description="Evaluates whether the generated image artifact meets the user's request.",
     model="gemini-2.5-flash",
-    instruction="Call make_img_llm_call({edited_image_artifact_id}, {prompt_generated},reference_image_artifact_id={reference_image_artifact_id})",
-    tools=[make_img_llm_call_tool],
-    output_key="edited_image_artifact_id"
+    instruction=(
+        "You are given the user's request ({query_text}) and the generated image artifact ID ({edited_image_artifact_id}). "
+        "Retrieve and examine the image associated with this artifact ID. "
+        "Determine whether the image fully and accurately reflects the user's request. "
+        "If the image correctly implements all requested changes, respond only with 'PASS'. "
+        "If any part of the request is missing, incorrect, or partially implemented, respond only with 'FAIL' "
+        "and briefly explain what is wrong or missing."
+    ),
+    output_key="evaluation_result"
+)
+
+prompt_corrector_agent = Agent(
+    name="prompt_corrector_agent",
+    description="Corrects or refines the prompt based on evaluator feedback.",
+    model="gemini-2.5-flash",
+    instruction=(
+        "You are provided with the original prompt ({prompt_generated}), the user's request ({query_text}), "
+        "and evaluator feedback ({evaluation_result}). If evaluation passed, return the same prompt. "
+        "If failed, update the prompt to fix the missing or incorrect elements without changing anything else in the image."
+    ),
+    output_key="corrected_prompt"
 )
 # --- Pipeline Agent ---
 class PipelineAgent(BaseAgent):
@@ -112,12 +161,14 @@ class PipelineAgent(BaseAgent):
     """
     model_config = {"arbitrary_types_allowed": True}
 
-    def __init__(self, name: str, image_describer: Agent, reference_img_describer: Agent, prompt_generator: Agent, executor: Agent):
-        super().__init__(name=name, sub_agents=[image_describer,reference_img_describer, prompt_generator, executor])
+    def __init__(self, name: str, image_describer: Agent, reference_img_describer: Agent, prompt_generator: Agent, executor: Agent, evaluator: Agent, prompt_corrector: Agent):
+        super().__init__(name=name, sub_agents=[image_describer, reference_img_describer, prompt_generator, executor, evaluator, prompt_corrector])
         self._image_describer = image_describer
         self._reference_img_describer = reference_img_describer
         self._prompt_generator = prompt_generator
         self._executor = executor
+        self._evaluator = evaluator
+        self._prompt_corrector = prompt_corrector
 
     async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         cb_ctx = CallbackContext(invocation_context=ctx)
@@ -193,40 +244,60 @@ class PipelineAgent(BaseAgent):
                 ctx.session.state["prompt_generated"] = event.content.parts[0].text
 
         # Step 3: Execute image edit tool
-        async for event in self._executor.run_async(ctx):
-            yield event
+        max_attempts = 2
+        attempt = 0
 
-        # Step 4: Load generated artifact
-        artifact_id = ctx.session.state.get("generated_image_artifact_id")
-        if not artifact_id:
-            error_event = Event(
-                author=self.name,
-                content=Content(parts=[Part(text="Error: No generated image artifact found.")])
-            )
-            yield error_event
-            return
+        while attempt < max_attempts:
+            attempt += 1
 
+            # Execute image edit
+            async for event in self._executor.run_async(ctx):
+                yield event
+                if event.is_final_response():
+                    ctx.session.state["edited_image_artifact_id"] = event.content.parts[0].text
+
+            # Evaluate result using artifact id
+            async for event in self._evaluator.run_async(ctx):
+                yield event
+                if event.is_final_response():
+                    ctx.session.state["evaluation_result"] = event.content.parts[0].text
+
+            eval_result = ctx.session.state["evaluation_result"].strip().upper()
+            if "PASS" in eval_result:
+                break  # done, image is correct
+
+            # If failed and attempt < max, then correct prompt & retry
+            if attempt < max_attempts:
+                async for event in self._prompt_corrector.run_async(ctx):
+                    yield event
+                    if event.is_final_response():
+                        ctx.session.state["prompt_generated"] = event.content.parts[0].text
+
+        # Step final: Return final edited image artifact
+        artifact_id = ctx.session.state.get("edited_image_artifact_id")
+        cb_ctx = CallbackContext(invocation_context=ctx)
         part = await cb_ctx.load_artifact(filename=artifact_id)
-        if part is None:
-            error_event = Event(
-                author=self.name,
-                content=Content(parts=[Part(text="Error: The image artifact could not be retrieved.")])
+
+        if not part:
+            yield Event(
+                content=Content(parts=[Part(text="Error: final image not found.")]),
+                final_response=True
             )
-            yield error_event
             return
 
-        # Final: yield the edited image
-        final_event = Event(author=self.name, content=Content(parts=[part]))
-        yield final_event
-        return
-
+        yield Event(
+            content=Content(parts=[part]),
+            final_response=True
+        )
 
 main_agent = PipelineAgent(
     name="pipeline_agent",
     image_describer=image_describer_agent,
-    reference_img_describer = reference_img_describer_agent,
+    reference_img_describer=reference_img_describer_agent,
     prompt_generator=prompt_generator_agent,
     executor=executor_agent,
+    evaluator=evaluator_agent,
+    prompt_corrector=prompt_corrector_agent,
 )
 
 root_agent = main_agent
