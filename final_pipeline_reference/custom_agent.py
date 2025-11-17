@@ -16,6 +16,9 @@ from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
 
 from .tools import make_img_llm_call, save_image_artifact  # adjust import as needed
+save_image_artifact_tool = FunctionTool(save_image_artifact)
+
+make_img_llm_call_tool = FunctionTool(make_img_llm_call)
 
 
 class PipelineAgent(BaseAgent):
